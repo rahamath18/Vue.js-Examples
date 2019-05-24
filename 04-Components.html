@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html>
+   <head>
+      <title>Vue.js - Components</title>
+      <script type = "text/javascript" src = "resources/vue-2.6.10/vue.js"></script> 
+   </head>
+   <body>
+
+   	  <div id = "intro" style = "text-align:center;">
+         <h1>{{ message }}</h1>
+      </div>
+
+      <div id = "component_id_1">
+         <my-custom-component></my-custom-component>
+      </div>
+      <div id = "component_id_2">
+         <my-custom-component></my-custom-component>
+      </div>
+
+	<script type = "text/javascript">
+
+		var intro = new Vue(
+		 {
+            el: '#intro',
+            data: 
+			{
+               message: 'Vue.js - Components'
+            }
+         });
+
+		Vue.component('my-custom-component',{
+		   template : '<div v-on:mouseover = "changeName()" v-on:mouseout = "originalName();"><h1>My Custom Component <span id = "name" style="color:red">{{name}}</span></h1></div>',
+		   data: function() {
+			   return {name: "Name 1"}
+		   },
+		   methods: {
+				changeName: function() {
+					this.name = "Name 2";	
+				},
+				originalName: function() {
+					this.name = "Name 3";
+				}
+			}
+		});
+		var vm = new Vue({
+		   el: '#component_id_1'
+		});
+		var vm1 = new Vue({
+		   el: '#component_id_2'
+		});
+	  
+
+	</script>
+
+   </body>
+</html>
+
+ 

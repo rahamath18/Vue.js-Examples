@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Vue.js - 1st Simple Example</title>
+	
+    <script type = "text/javascript" src = "resources/vue-2.6.10/vue.js"></script>
+
+ </head>
+ <body>
+      <div id = "simpleExample" style = "text-align:center;">
+         <h1>{{ simpleMessage }}</h1>
+      </div>
+      <script type = "text/javascript">
+         var intro = new Vue(
+		 {
+            el: '#simpleExample',
+            data: 
+			{
+               simpleMessage: 'Vue.js - 1st Simple Example'
+            }
+         });
+      </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+   <head>
+      <title>Vue.js - Dynamic Components</title>
+      <script type = "text/javascript" src = "resources/vue-2.6.10/vue.js"></script> 
+   </head>
+   <body>
+
+   	  <div id = "intro" style = "text-align:center;">
+         <h1>{{ message }}</h1>
+      </div>
+
+      <div id = "databinding">
+         <component v-bind:is = "view"></component>
+		 <component v-bind:is = "view"></component>
+		 <component v-bind:is = "view"></component>
+      </div>
+
+	  <div id = "databinding_1">
+         <component v-bind:is = "view"></component>
+		 <component v-bind:is = "view"></component>
+		 <component v-bind:is = "view"></component>
+      </div>
+
+	<script type = "text/javascript">
+
+		var intro = new Vue(
+		 {
+            el: '#intro',
+            data: 
+			{
+               message: 'Vue.js - Dynamic Components'
+            }
+         });
+
+		var vm = new Vue({
+            el: '#databinding_1',
+            data: {
+               view: 'custom_dynamic_component'
+            },
+            components: {
+               'custom_dynamic_component': {
+                  template: '<div><span style = "color:blue;">Dynamic Custom Component</span></div>'
+               }
+            }
+         });
+	  
+
+	</script>
+
+   </body>
+</html>
+
+ 

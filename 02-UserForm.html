@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Vue.js - User Form</title>
+      <script type = "text/javascript" src = "resources/vue-2.6.10/vue.js"></script> 
+   </head>
+   <body>
+   	  <div id = "simpleExample" style = "text-align:center;">
+         <h1>{{ simpleMessage }}</h1>
+      </div> 
+	<form method="post" action="">	
+      <div id = "vue_det">         
+		<table style="border-spacing: 10px;">
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" id="firstName" name="firstName" v-model="firstName"></td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" id="lastName" name="lastName" v-model="lastName"></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" id="email" name="email" v-model="email"></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input type="text" id="phone" name="phone" v-model="phone"></td>
+			</tr>
+			<tr>
+				<td>User Message</td>
+				<td>
+					<textarea v-model="userMessage()" id="userMessage" placeholder="Add multiple lines of messages"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Social Media</td>
+				<td><select v-model="selectedSocialMedia" multiple>
+					  <option v-for="option in options" v-bind:value="option.value">
+						{{ option.text }}
+					  </option>
+					</select>
+					<br><br>
+					<span>Selected Media: {{ selectedSocialMedia }}</span>
+				</td>
+			</tr>
+			<tr>
+				<td>Skills</td>
+				<td>
+					<input type="checkbox" id="java" value="1-Java" v-model="checkedSkills">
+					<label for="java">Java</label>
+					<input type="checkbox" id="hibernate" value="2-Hibernate" v-model="checkedSkills">
+					<label for="hibernate">Hibernate</label>
+					<input type="checkbox" id="spring" value="3-Spring" v-model="checkedSkills">
+					<label for="spring">Spring</label>
+					<input type="checkbox" id="xamarin" value="4-Xamarin" v-model="checkedSkills">
+					<label for="xamarin">Xamarin</label>
+					<br><br>
+					<span>Checked Skills {{ checkedSkills }}</span>
+				</td>
+			</tr>
+			<tr>
+				<td>Department</td>
+				<td>
+					<input type="radio" id="one" value="1-IT" v-model="picked">
+					<label for="one">IT</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" id="two" value="2-Finance" v-model="picked">
+					<label for="two">Finance</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" id="three" value="3-HR" v-model="picked">
+					<label for="two">HR</label>
+					<br><br>
+					<span>Picked Department: {{ picked }}</span>
+				</td>
+			</tr>			 
+		</table>
+      </div>
+	 </form>
+
+	<script type = "text/javascript">
+
+		 var intro = new Vue(
+		 {
+            el: '#simpleExample',
+            data: 
+			{
+               simpleMessage: 'Vue.js - User Form Example'
+            }
+         });
+
+         var  vm = new Vue({
+		   el: '#vue_det',
+		   data: {
+			  firstName : "Rahamath",
+			  lastName : "S",
+			  email : "rahamath18@yahoo.com",
+			  phone : 12345,
+			  selectedSocialMedia: [],
+			  options: [
+				  { value: '1-Linkedin', text: 'Linkedin' },
+				  { value: '2-Twitter', text: 'Twitter' },
+				  { value: '3-Github', text: 'Github' },
+				  { value: '4-Gooogle Play Store', text: 'Gooogle Play Store' }
+			  ],
+			  checkedSkills: [],
+			  picked : ''
+		   },
+		   methods: {
+			  userMessage : function() {
+				 return "I am "+this.firstName +" "+ this.lastName;
+			  }
+		   }		   
+		});
+	</script>
+
+   </body>
+
+</html>

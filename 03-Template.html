@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html>
+   <head>
+      <title>Vue.js - Template</title>
+      <script type = "text/javascript" src = "resources/vue-2.6.10/vue.js"></script> 
+   </head>
+   <body>
+   	
+	  <div id = "intro" style = "text-align:center;">
+         <h1>{{ message }}</h1>
+      </div>
+
+      <div id = "vue_det">
+
+         <h1>Firstname : {{firstName}}</h1>
+         <h1>Lastname : {{lastName}}</h1>
+
+		 <!-- <h1>{{htmlContent}}</h1> -->
+		 <div v-html = "htmlContent"></div>
+
+		 <!-- <img src = "{{imgSrc}}" width = "150" height = "100" /> -->
+		 <img v-bind:src = "imgSrc" width = "150" height = "100" />
+
+      </div>
+
+
+	<script type = "text/javascript">
+
+		var intro = new Vue(
+		 {
+            el: '#intro',
+            data: 
+			{
+               message: 'Vue.js - Template'
+            }
+         });
+
+		var data = new Vue(
+		 { 		 
+		    el: '#vue_det',
+		    data: {
+			  firstName : "Rahamath",
+			  lastName  : "S",
+			  htmlContent : "<div><h1><Font color='blue'>Vue Js Template goes here...</font></h1></div>",
+			  imgSrc : "images/logo.png"
+		    }		 
+		 });
+	  
+
+	</script>
+
+   </body>
+</html>
+
+ 
